@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Create Helm Chart</title>
+</head>
+<body>
+    <h2>Create new Helm Chart</h2>
+
+    <form action="/api/v1/helm/chart" method="post">
+        <label for="chartName">Chart name:</label>
+        <input type="text" id="chartName" name="chartName" required>
+        <button type="submit">Create Chart</button>
+    </form>
+
+    <p th:if="${message}" th:text="${message}"></p>
+</body>
+</html>
