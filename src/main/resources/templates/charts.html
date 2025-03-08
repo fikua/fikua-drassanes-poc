@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Helm Charts Disponibles</title>
+</head>
+<body>
+    <h2>Listado de Charts en el Servidor</h2>
+    <ul>
+        <li th:each="chartsList : ${chartsList}">
+            <a th:href="@{/chart/files(chartName=${chartsList})}" th:text="${chartsList}"></a>
+        </li>
+    </ul>
+
+    <br>
+
+    <h3>Crear un nuevo Chart</h3>
+    <form action="/create-chart" method="post">
+        <label for="chartName">Nombre del Chart:</label>
+        <input type="text" id="chartName" name="chartName" required>
+        <button type="submit">Crear Chart</button>
+    </form>
+    <p th:if="${message}" th:text="${message}"></p>
+
+</body>
+</html>

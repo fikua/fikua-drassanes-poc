@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Archivos del Chart</title>
+</head>
+<body>
+<h2>Archivos en el Chart: <span th:text="${chartName}"></span></h2>
+<ul>
+  <li th:each="file : ${files}">
+    <a th:href="@{/chart/view(chartName=${chartName}, fileName=${file})}" th:text="${file}"></a>
+  </li>
+</ul>
+<a href="/charts">Volver al listado de Charts</a>
+</body>
+</html>

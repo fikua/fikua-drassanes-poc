@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Ver Archivo</title>
+</head>
+<body>
+<h2>Contenido de <span th:text="${fileName}"></span> en <span th:text="${chartName}"></span></h2>
+<pre th:text="${content}"></pre>
+<a th:href="@{/chart/view(chartName=${chartName}, filePath=${file})}" th:text="${file}"></a>
+</body>
+</html>
