@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 public class HelmService {
 
     public String createHelmChart(String chartName) {
+        log.info("Creating Helm Chart with name {}", chartName);
         ProcessBuilder processBuilder = new ProcessBuilder("helm", "create", chartName);
         processBuilder.redirectErrorStream(true);
         try {
@@ -23,7 +24,7 @@ public class HelmService {
                 output.append(line).append("\n");
             }
             process.waitFor();
-            return "Helm Chart creado: " + chartName + "\n" + output.toString();
+            return "Helm Chart creado: " + chartName + "\n" + output;
         } catch (IOException | InterruptedException e) {
             log.error("Error al ejecutar Helm: {}", e.getMessage());
             Thread.currentThread().interrupt();
